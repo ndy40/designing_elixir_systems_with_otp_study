@@ -24,7 +24,7 @@ defmodule Mastery.Core.Quiz do
   defp add_to_list_or_nil(nil, template), do: [template]
   defp add_to_list_or_nil(templates, template), do: [template | templates]
 
-  def select_questio(%__MODULE__{templates: t}) when map_size(t) == 0, do: nil
+  def select_question(%__MODULE__{templates: t}) when map_size(t) == 0, do: nil
   def select_question(quiz) do
     quiz
     |> pick_current_question

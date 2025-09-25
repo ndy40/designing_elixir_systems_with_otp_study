@@ -8,6 +8,10 @@ defmodule Mastery.Boundary.QuizManager do
 
   def init(_quizzes), do: {:error, "quizzes must be map"}
 
+  def start_link(opts \\ [ ]) do
+    GenServer.start_link(__MODULE__, %{ }, opts)
+  end
+
   def handle_call({:build_quiz, quize_fileds}, _from, quizzes) do
     quiz = Quiz.new(quize_fileds)
     new_quizzes = Map.put(quizzes, quiz.title, quiz)

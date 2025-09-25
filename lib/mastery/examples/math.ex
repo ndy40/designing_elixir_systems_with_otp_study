@@ -15,7 +15,8 @@ defmodule Mastery.Examples.Math do
   def addition_checker(substitutions, answer) do
     left = Keyword.fetch!(substitutions, :left)
     right = Keyword.fetch!(substitutions, :right)
-    to_string(left + right) == String.trim(answer)
+    answer = to_string(answer) |> String.trim()
+    to_string(left + right) == answer
   end
 
   def addition_generator() do
